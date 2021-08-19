@@ -3,9 +3,8 @@ import mediapipe as mp
 import os
 
 # Se crea la carpeta donde se almacenara el entrenameinto
-nombre = 'Letra_A'  # Letras del abecedario
-direccion = '/Users/danixasolano/Download/KEVYN/Proyecto/Fotos/Entrenamiento'  # Entrenamiento 
-#direccion = '/Users/danixasolano/Download/KEVYN/Proyecto/Fotos/Validacion' # Validacion
+nombre = 'Letra_Y'  # Letras
+direccion = '/Users/danixasolano/Downloads/KEVYN/Proyecto/Fotos/Entrenamiento'  # Enrewnamiento y Validacion
 carpeta = direccion + '/' + nombre
 
 
@@ -53,14 +52,14 @@ while (1):
                 punto_i3 = posiciones[12]
                 punto_i4 = posiciones[0]
                 punto_i5 = posiciones[9]
-                x1, y1 = (punto_i5[1] - 100), (punto_i5[2] - 100) #Se obtiene el punto inicial y las longitudes
-                ancho, alto = (x1 + 200), (y1 + 200)
+                x1, y1 = (punto_i5[1] - 200), (punto_i5[2] - 200) #Se obtiene el punto inicial y las longitudes
+                ancho, alto = (x1 + 100), (y1 + 200)
                 x2, y2 = x1 + ancho, y1 + alto
                 dedos_reg = copia[y1:y2, x1:x2]
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 3)
-            dedos_reg = cv2.resize(dedos_reg, (200, 200), interpolation=cv2.INTER_CUBIC) #Redimensionamos las fotos
-            cv2.imwrite(carpeta + "/Dedos_{}.jpg".format(cont), dedos_reg)
-            cont = cont + 1
+            #dedos_reg = cv2.resize(dedos_reg, (200, 200), interpolation=cv2.INTER_CUBIC) #Redimensionamos las fotos
+            #cv2.imwrite(carpeta + "/Dedos_{}.jpg".format(cont), dedos_reg)
+            #cont = cont + 1
 
     cv2.imshow("Proyecto Final", frame)
     k = cv2.waitKey(1)
